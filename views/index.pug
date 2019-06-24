@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  form(name='myForm', action='/api/search', onsubmit='return validateForm()', method='post')
+        | Name: 
+        input(type='text', name='username' id='username')
+        input(type='submit', value='Submit')
+
+
+  script.
+    function validateForm() {
+      const username = document.forms["myForm"]["username"].value;
+      if (username === "") {
+        alert("Name must be filled out");
+        return false;
+      }
+    }
