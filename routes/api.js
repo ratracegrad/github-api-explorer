@@ -8,7 +8,6 @@ router.post('/search', function(req, res, next) {
   const username = req.body.username;
   axios.get(`${endpoint}?q=${username}`)
   .then(response => {
-    console.log('data', response.data);
     res.json(response.data);
   })
   .catch(err => {
